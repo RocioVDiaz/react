@@ -1,8 +1,12 @@
 import './Titulo.css'
 
-function Titulo() {
+function Titulo({titulo, subtitulo}) {
+
   return (
-    <div className= 'titulo'> Titulo</div>
+    <div className= 'titulo'>
+      <h1>{titulo}</h1> 
+      <h2>{subtitulo}</h2>
+      </div>
   )
 }
 
