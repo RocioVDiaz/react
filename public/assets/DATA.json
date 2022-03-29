@@ -1,0 +1,10 @@
+{
+"detalle": {
+    "id": 0,
+    "nombre": "Camiseta Titular 2021/22",
+    "descripcion": "Camiseta Puma Titular de Juego 2021/22 ",
+    "precio": 8999,
+    "talle": ["S", "M", "L", "XL"],
+    "img": "/img/camiseta_2022.jpg"
+  }
+}

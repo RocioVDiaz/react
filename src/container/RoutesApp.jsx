@@ -3,7 +3,8 @@ import Titulo from '../components/titulo/Titulo';
 import NavBar from '../components/NavBar/NavBar';
 import Input from '../components/Input/Input';
 import ItemCounts from '../components/ItemCounts/ItemCounts';
-import ItemListContainer from './ItemListContainer';
+import ItemListContainer from './ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 
 
 
@@ -28,6 +29,7 @@ function RoutesApp() {
         <Input placeholder='Ingrese el nombre'/>
         <ItemCounts onAdd={onAdd} stock={5} initial={1}/>
         <ItemListContainer/>
+        <ItemDetailContainer/>
         
       </>
   )

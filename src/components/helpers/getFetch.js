@@ -1,9 +1,9 @@
-import titular from "./img/camiseta_2022.jpg";
+/* import titular from "./img/camiseta_2022.jpg";
 import alternativa from "./img/alternativa-2022-blanca.jpg";
 import paladar from "./img/paladar-negro-2022.jpg";
 import retro from "./img/retro_1995.jpeg";
 import campeon from "./img/campeon_2010.jpg";
-import sudamericana from "./img/camiseta_2017.jpg";
+import sudamericana from "./img/camiseta_2017.jpg"; */
 
 const camisetas = [
   {
@@ -12,7 +12,7 @@ const camisetas = [
     descripcion: "Camiseta Puma Titular de Juego 2021/22 ",
     precio: 8999,
     talle: ["S", "M", "L", "XL"],
-    img: titular,
+    img: '/img/camiseta_2022.jpg',
   },
   {
     id: 1,
@@ -20,7 +20,7 @@ const camisetas = [
     descripcion: "Camiseta Puma Alternativa de Juego 2021-22 ",
     precio: 10599,
     talle: ["S", "M", "L", "XL"],
-    img: alternativa,
+    img: '/img/alternativa-2022-blanca.jpg',
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const camisetas = [
     descripcion: "Camiseta Puma 3° Edición 2021-22",
     precio: 11399,
     talle: ["S", "M", "L", "XL"],
-    img: paladar,
+    img: '/img/paladar-negro-2022.jpg',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const camisetas = [
     descripcion: "Camiseta Adidas sponsor Ades titular",
     precio: 5500,
     talle: ["S", "M", "L", "XL"],
-    img: retro,
+    img: '/img/retro_1995.jpeg',
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const camisetas = [
     descripcion: "Camiseta Puma sponsor Motomel alternativa",
     precio: 4300,
     talle: ["S", "M", "L", "XL"],
-    img: campeon,
+    img: '/img/campeon_2010.jpg',
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const camisetas = [
     descripcion: "Camiseta Puma roja con parche Sudamericana",
     precio: 7000,
     talle: ["S", "M", "L", "XL"],
-    img: sudamericana,
+    img: '/img/camiseta_2017.jpg',
   },
 ];
 

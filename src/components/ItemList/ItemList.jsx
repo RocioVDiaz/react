@@ -22,8 +22,8 @@ function ItemList() {
     {(loading)? <Spinner animation="border" variant="danger" />:<div><Row xs={1} md={3} className="g-4 m-5">
 
     {productos.map((producto) => (
-        <Col>
-      <div key={producto.id}  >
+        <Col key={producto.id}>
+      <div >
         <Item  camiseta={producto} />
       </div>
       </Col>
