@@ -4,39 +4,40 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import logo from './escudo.jpg'
 import CartWidget from '../CartWidget/CartWidget'
+import { NavLink } from 'react-router-dom'
 
 
 function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <Navbar.Brand href="#home"> <img
+  <NavLink to='/'> <img
           alt=""
           src={logo}
           width="40"
           height="40"
         
           className="d-inline-block align-top"
-        />{' '}Paladar Negro Store</Navbar.Brand>
+        />{' '}Paladar Negro Store</NavLink>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="#features">Inicio</Nav.Link>
       
-      <NavDropdown title="Indumentaria" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Lanzamiento</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Retro</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Conjuntos</NavDropdown.Item>
+      
+      <NavDropdown title="Indumentaria" menuVariant="dark" id="collasible-nav-dropdown">
+        <NavLink to="/indumentaria/camiseta"  className="dropdown-item">Camisetas</NavLink>
+        <NavLink to="/indumentaria/shorts" className="dropdown-item">Shorts</NavLink>
+        <NavLink to="/indumentaria/campera" className="dropdown-item">Camperas</NavLink>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Accesorios</NavDropdown.Item>
+        <NavLink to="/indumentaria/accesorios" className="dropdown-item">Accesorios</NavLink>
       </NavDropdown>
-      <Nav.Link href="#pricing">Contacto</Nav.Link>
+      <NavLink to="/contacto">Contacto</NavLink>
     </Nav>
     <Nav>
       <Nav.Link href="#deets">Iniciar Sesión</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
+      <NavLink to='/carrito'>
         <CartWidget/> 
-      </Nav.Link>
+      </NavLink>
     </Nav>
   </Navbar.Collapse>
   </Container>
@@ -45,3 +46,7 @@ function NavBar() {
 }
 
 export default NavBar
+
+
+
+

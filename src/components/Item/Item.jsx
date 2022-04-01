@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import './Item.css'
 
 function Item({ camiseta }) {
@@ -11,6 +12,10 @@ function Item({ camiseta }) {
         <Card.Body>
           <Card.Title>{camiseta.nombre}</Card.Title>
           <Card.Text>$ {camiseta.precio}</Card.Text>
+          <Link to={`/detalle/${camiseta.id}`}>
+            <Button variant="danger">ver detalle</Button>{' '}
+          </Link>
+          
         </Card.Body>
       </Card>
     </div>

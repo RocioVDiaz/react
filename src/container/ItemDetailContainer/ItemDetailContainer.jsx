@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Spinner } from "react-bootstrap"
+import { useParams } from "react-router-dom"
 import { getFetch } from "../../components/helpers/getFetch"
 import ItemDetail from "../../components/ItemDetail/ItemDetail"
 
@@ -9,6 +10,7 @@ function ItemDetailContainer() {
 
 const [producto, setProducto] = useState({})
 const [loading, setLoading] = useState(true)
+const {detalleId} = useParams()
 
 useEffect(() => {
  setTimeout(()=>{
@@ -20,8 +22,9 @@ const getFetchApi = async () => {
   try {
     const query = await fetch('/assets/DATA.json')
     const queryParse = await query.json()
-    setProducto(queryParse.detalle)
-    console.log(producto)
+    const indumentaria = queryParse.detalle.find(item =>  item.id === Number(detalleId)  )
+    setProducto(indumentaria)
+   
   } catch (error) {
     console.log(error)
   } 

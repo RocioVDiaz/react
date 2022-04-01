@@ -3,19 +3,31 @@ import Item from "../Item/Item";
 import { useEffect, useState } from "react";
 import { getFetch } from "../helpers/getFetch";
 import { Col, Row, Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 function ItemList() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true)
-
+  const {indumentariaId} = useParams()
 
   useEffect(() => {
-    getFetch
+
+    if (indumentariaId) {
+      getFetch
+      .then((resp) => setProductos(resp.filter(item => item.categoria === indumentariaId)))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+      
+    } else {
+      getFetch
       .then((resp) => setProductos(resp))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, []);
-  console.log(productos);
+    }
+
+  
+  }, [indumentariaId]);
+  
 
   return (
     <>

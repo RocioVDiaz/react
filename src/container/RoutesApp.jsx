@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Titulo from '../components/titulo/Titulo';
 import NavBar from '../components/NavBar/NavBar';
 import Input from '../components/Input/Input';
 import ItemCounts from '../components/ItemCounts/ItemCounts';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
+import CartContainer from './CartContainer/CartContainer';
 
 
 
@@ -22,16 +24,30 @@ function RoutesApp() {
 
 
   return (
-    <>
+    <BrowserRouter>
+    <NavBar/>
+      <Routes>
+        <Route path='/'
+               element={ <>
+               <ItemCounts onAdd={onAdd} stock={5} initial={1}/>
+               <ItemListContainer/></>}
 
-        <NavBar/>
-        <Titulo titulo= {titulo} subtitulo='Soy subtitulo' />
-        <Input placeholder='Ingrese el nombre'/>
-        <ItemCounts onAdd={onAdd} stock={5} initial={1}/>
-        <ItemListContainer/>
-        <ItemDetailContainer/>
+                 />
+                 <Route path='/indumentaria/:indumentariaId'
+               element={ <>
+                  <ItemListContainer/></>}
+
+                 />
+          <Route path='/detalle/:detalleId' element={<ItemDetailContainer/>}/>
+          <Route path='/carrito' element={<CartContainer/>}/>
+      
         
-      </>
+     
+       
+        
+      </Routes>
+
+     </BrowserRouter>
   )
 }
 
