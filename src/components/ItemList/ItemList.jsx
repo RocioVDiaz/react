@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { getFetch } from "../helpers/getFetch";
 import { Col, Row, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 function ItemList() {
   const [productos, setProductos] = useState([]);
@@ -31,7 +32,7 @@ function ItemList() {
 
   return (
     <>
-    {(loading)? <Spinner animation="border" variant="danger" />:<div><Row xs={1} md={3} className="g-4 m-5">
+    {(loading)? <Loading/>:<div><Row xs={1} md={3} className="g-4 mx-5 mt-5 pb-5">
 
     {productos.map((producto) => (
         <Col key={producto.id}>

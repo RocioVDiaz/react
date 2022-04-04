@@ -22,7 +22,7 @@ const getFetchApi = async () => {
   try {
     const query = await fetch('/assets/DATA.json')
     const queryParse = await query.json()
-    const indumentaria = queryParse.detalle.find(item =>  item.id === Number(detalleId)  )
+    const indumentaria = queryParse.detalle.find(item =>  item.id === Number(detalleId)   )
     setProducto(indumentaria)
    
   } catch (error) {
@@ -34,7 +34,7 @@ const getFetchApi = async () => {
 
   return (
     <>
-     {(loading)? <Spinner animation="border" variant="primary" />:
+     {(loading)? <Spinner animation="border" className="mt-5" variant="danger" />:
 
     <ItemDetail camiseta={producto}/>}
     </>

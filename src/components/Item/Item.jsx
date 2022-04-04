@@ -7,11 +7,11 @@ import './Item.css'
 function Item({ camiseta }) {
   return (
     <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img className="imagen" variant="top" src={camiseta.img} />
+      <Card bg="dark" style={{ width: "18rem" }}>
+        <Card.Img className="imagen p-2" variant="top" src={camiseta.img} />
         <Card.Body>
-          <Card.Title>{camiseta.nombre}</Card.Title>
-          <Card.Text>$ {camiseta.precio}</Card.Text>
+          <Card.Title className="text-light">{camiseta.nombre}</Card.Title>
+          <Card.Text className="text-light">$ {camiseta.precio}</Card.Text>
           <Link to={`/detalle/${camiseta.id}`}>
             <Button variant="danger">ver detalle</Button>{' '}
           </Link>

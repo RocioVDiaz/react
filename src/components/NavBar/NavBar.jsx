@@ -5,20 +5,27 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import logo from './escudo.jpg'
 import CartWidget from '../CartWidget/CartWidget'
 import { NavLink } from 'react-router-dom'
+import './NavBar.css'
+
 
 
 function NavBar() {
-  return (
+  return (<>
+  {/*   <div class="jumbotron">
+    <div class="container text-center">
+      <h1>Paladar Negro Store</h1>
+      <p class="fw-bold">Indumentaria Exclusiva del Club Atlético Independiente</p>
+    </div>
+  </div> */}
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <NavLink to='/'> <img
+  <NavLink to='/' className="text-white nav-link "> <img
           alt=""
           src={logo}
           width="40"
-          height="40"
-        
+          height="40"        
           className="d-inline-block align-top"
-        />{' '}Paladar Negro Store</NavLink>
+        />{' '}<span className=" nav-link d-inline-block text-white " >Paladar Negro Store</span></NavLink>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
@@ -31,10 +38,10 @@ function NavBar() {
         <NavDropdown.Divider />
         <NavLink to="/indumentaria/accesorios" className="dropdown-item">Accesorios</NavLink>
       </NavDropdown>
-      <NavLink to="/contacto">Contacto</NavLink>
+      <NavLink  className="nav-link" to="/contacto">Contacto</NavLink>
     </Nav>
     <Nav>
-      <Nav.Link href="#deets">Iniciar Sesión</Nav.Link>
+      <Nav.Link  className="nav-link" href="#deets">Iniciar Sesión</Nav.Link>
       <NavLink to='/carrito'>
         <CartWidget/> 
       </NavLink>
@@ -42,6 +49,7 @@ function NavBar() {
   </Navbar.Collapse>
   </Container>
 </Navbar>
+</>
   )
 }
 

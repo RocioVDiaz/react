@@ -29,7 +29,7 @@ function RoutesApp() {
       <Routes>
         <Route path='/'
                element={ <>
-               <ItemCounts onAdd={onAdd} stock={5} initial={1}/>
+            
                <ItemListContainer/></>}
 
                  />
