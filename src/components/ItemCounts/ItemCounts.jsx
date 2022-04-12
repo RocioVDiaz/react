@@ -16,7 +16,7 @@ function ItemCounts({ onAdd, stock, initial }) {
   return (
     <Card bg="dark" className="mx-3" style={{ width: "18rem" }}>
       <Card.Body>
-        <Card.Title className="text-light">Camiseta Retro '95</Card.Title>
+       
         <ListGroup>
           <ListGroup.Item>
             <Button
@@ -38,14 +38,7 @@ function ItemCounts({ onAdd, stock, initial }) {
             </Button>{" "}
           </ListGroup.Item>
         </ListGroup>
-        <Button
-          className="mt-2"
-          onClick={() => onAdd(count)}
-          disabled={stock === 0 ? true : null}
-          variant="danger"
-        >
-          Agregar al carrito
-        </Button>
+       
       </Card.Body>
     </Card>
   );
