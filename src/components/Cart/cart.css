@@ -1,0 +1,6 @@
+.camiseta{
+    height: 100px;
+}
+tr:hover{
+    background-color: rgba(232, 21, 21, 0.719);
+}

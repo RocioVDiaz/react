@@ -7,6 +7,7 @@ import ItemCounts from '../components/ItemCounts/ItemCounts';
 import ItemListContainer from './ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
 import CartContainer from './CartContainer/CartContainer';
+import CartContextProvider, { CartContext } from '../context/cartContext';
 
 
 
@@ -25,6 +26,7 @@ function RoutesApp() {
 
   return (
     <BrowserRouter>
+    <CartContextProvider>
     <NavBar/>
       <Routes>
         <Route path='/'
@@ -46,7 +48,7 @@ function RoutesApp() {
        
         
       </Routes>
-
+      </CartContextProvider>           
      </BrowserRouter>
   )
 }

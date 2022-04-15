@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import ButtonCount from "../Buttons/ButtonCount";
 
-function ItemCounts({ onAdd, stock, initial }) {
+function ItemCounts({ onAdd, stock, initial, ocultar }) {
   const [count, setCount] = useState(initial);
 
   const agregarProducto = () => {
@@ -38,7 +39,7 @@ function ItemCounts({ onAdd, stock, initial }) {
             </Button>{" "}
           </ListGroup.Item>
         </ListGroup>
-       
+       <ButtonCount stock={stock} onAdd={onAdd} ocultar= {ocultar} count={count}/> 
       </Card.Body>
     </Card>
   );
