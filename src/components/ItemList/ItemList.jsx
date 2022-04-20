@@ -16,13 +16,11 @@ function ItemList() {
     if (indumentariaId) {
       getFetch
       .then((resp) => setProductos(resp.filter(item => item.categoria === indumentariaId)))
-      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
       
     } else {
       getFetch
       .then((resp) => setProductos(resp))
-      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
     }
 

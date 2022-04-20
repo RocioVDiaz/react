@@ -11,13 +11,7 @@ import './NavBar.css'
 
 function NavBar() {
   return (<>
-  {/*   <div class="jumbotron">
-    <div class="container text-center">
-      <h1>Paladar Negro Store</h1>
-      <p class="fw-bold">Indumentaria Exclusiva del Club Atlético Independiente</p>
-    </div>
-  </div> */}
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
   <NavLink to='/' className="text-white nav-link "> <img
           alt=""
@@ -42,7 +36,7 @@ function NavBar() {
     </Nav>
     <Nav>
       <Nav.Link  className="nav-link" href="#deets">Iniciar Sesión</Nav.Link>
-      <NavLink to='/carrito'>
+      <NavLink className="text-white nav-link" to='/carrito'>
         <CartWidget/> 
       </NavLink>
     </Nav>

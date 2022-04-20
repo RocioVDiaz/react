@@ -15,7 +15,6 @@ function ItemDetail({ camiseta }) {
   const {addToCart} = useCartContext()
 
   function onAdd(cant) {
-    console.log(cant)
     addToCart({...camiseta, cantidad:cant})
   }
   return (

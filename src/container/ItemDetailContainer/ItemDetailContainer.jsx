@@ -26,7 +26,6 @@ const getFetchApi = async () => {
     setProducto(indumentaria)
    
   } catch (error) {
-    console.log(error)
   } 
   setLoading(false)
 }
