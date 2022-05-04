@@ -1,5 +1,23 @@
+import {
+  addDoc,
+  collection,
+  documentId,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+  writeBatch,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { Alert, Button, Card, Container, Row, Table } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Card,
+  Col,
+  Container,
+  Row,
+  Table,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 import "./cart.css";
@@ -7,6 +25,54 @@ import "./cart.css";
 function Cart() {
   const { total, cartList, removeCart, calcularTotal, removeItem } =
     useCartContext();
+
+  const generarOrden = async (e) => {
+    e.preventDefault();
+    let orden = {};
+    orden.buyer = { name: "Rocio", email: "r@gmail.com", phone: "00012151315" };
+    orden.total = total;
+
+    orden.items = cartList.map((cartItem) => {
+      console.log(cartItem);
+      const id = cartItem.id;
+      const nombre = cartItem.nombre;
+      const precio = cartItem.precio * cartItem.cantidad;
+      const cantidad = cartItem.cantidad;
+      return { id, nombre, precio, cantidad };
+    });
+    console.log(orden);
+    const db = getFirestore();
+    const queryCollection = collection(db, "orders");
+    console.log(queryCollection);
+    await addDoc(queryCollection, orden).then(({ id }) => console.log(id));
+
+    const queryCollectionStock = collection(db, "productos");
+
+    const queryActualizarStock = await query(
+      queryCollectionStock,
+      where(
+        documentId(),
+        "in",
+        cartList.map((it) => it.id)
+      )
+    );
+
+    const batch = writeBatch(db);
+
+    await getDocs(queryActualizarStock)
+      .then((resp) =>
+        resp.docs.forEach((res) =>
+          batch.update(res.ref, {
+            stock:
+              res.data().stock -
+              cartList.find((producto) => producto.id === res.id).cantidad,
+          })
+        )
+      )
+      .finally(() => console.log("actualizado"));
+
+    batch.commit();
+  };
 
   const handleClick = (e, index) => {
     e.preventDefault();
@@ -40,9 +106,7 @@ function Cart() {
             <hr />
             <div className="d-flex justify-content-end">
               <Link to="/">
-                <button
-                  className="btn btn-outline-danger mx-2"
-                >
+                <button className="btn btn-outline-danger mx-2">
                   Seguir comprando
                 </button>
               </Link>
@@ -109,9 +173,18 @@ function Cart() {
               </tbody>
             </Table>
           </Card.Body>
-          <Button variant="danger" onClick={removeCart}>
-            vaciar carrito
-          </Button>
+          <Row className="mb-3">
+            <Col>
+              <Button variant="danger" onClick={removeCart}>
+                vaciar carrito
+              </Button>
+            </Col>
+            <Col>
+              <Button variant="success" onClick={generarOrden}>
+                confirmar compra
+              </Button>
+            </Col>
+          </Row>
         </Card>
       )}
     </div>
