@@ -1,8 +1,9 @@
+import React from 'react'
 
-export default function Input({placeholder}){
-    return(
-      <>  
-          <input placeholder={placeholder}/>
-      </>
-    )
-  }
+function Input() {
+  return (
+    <div>Input</div>
+  )
+}
+
+export default Input
